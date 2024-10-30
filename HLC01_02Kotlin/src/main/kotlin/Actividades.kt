@@ -1,6 +1,7 @@
 import kotlin.random.Random
 
 object Actividades {
+    private const val ERROR = "Numero negativo o igual a 0"
 
     fun ej01() {
         print("Dime tu nombre: ")
@@ -121,7 +122,7 @@ object Actividades {
         val number = readln().toInt()
 
         if (number <= 0) {
-            throw NumberFormatException("Numero negativo o igual a 0")
+            throw NumberFormatException(ERROR)
         }
 
         if (number == 1) {
@@ -160,7 +161,7 @@ object Actividades {
         print("Introduce un numero: ")
         val number = readln().toInt()
         if (number <= 0) {
-            throw NumberFormatException("Numero negativo o igual a 0")
+            throw NumberFormatException(ERROR)
         }
 
         var oldNumber = 0
@@ -189,7 +190,7 @@ object Actividades {
         var reversedNumber = 0
 
         if (number < 0) {
-            throw NumberFormatException("Numero negativo o igual a 0")
+            throw NumberFormatException(ERROR)
         }
 
         while (normalNumber != 0) {
