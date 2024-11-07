@@ -13,11 +13,11 @@
     <color name="lightPink">#FA8072</color>
     <color name="grey">#737373</color>
     <color name="orange">#D97818</color>
-    <color name="box1">#8C67E9</color>
-    <color name="box2">#9646E6</color>
+    <color name="box5">#8C67E9</color>
+    <color name="box4">#9646E6</color>
     <color name="box3">#9407E4</color>
-    <color name="box4">#C20A76</color>
-    <color name="box5">#DB3232</color>
+    <color name="box2">#C20A76</color>
+    <color name="box1">#DB3232</color>
     <color name="box6">#32DBA5</color>
     <color name="box7">#2BC262</color>
     <color name="box8">#17872F</color>

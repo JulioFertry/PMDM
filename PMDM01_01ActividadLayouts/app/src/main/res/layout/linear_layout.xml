@@ -9,7 +9,7 @@
     android:orientation="horizontal">
 
     <View
-        android:id="@+id/leftRow"
+        android:id="@+id/left"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -25,44 +25,44 @@
         >
 
         <View
-            android:id="@+id/leftmid1"
+            android:id="@+id/box1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/box5" />
+            android:background="@color/box1" />
 
         <View
-            android:id="@+id/leftmid2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/box4" />
-
-        <View
-            android:id="@+id/leftmid3"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/box3" />
-
-        <View
-            android:id="@+id/leftmid4"
+            android:id="@+id/box2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/box2" />
 
         <View
-            android:id="@+id/leftmid5"
+            android:id="@+id/box3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/box1" />
+            android:background="@color/box3" />
+
+        <View
+            android:id="@+id/box4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/box4" />
+
+        <View
+            android:id="@+id/box5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/box5" />
 
     </LinearLayout>
 
     <View
-        android:id="@+id/midRighttrow"
+        android:id="@+id/midRight"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -78,35 +78,35 @@
         >
 
         <View
-            android:id="@+id/right1"
+            android:id="@+id/box6"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/box6" />
 
         <View
-            android:id="@+id/right2"
+            android:id="@+id/box7"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/box7" />
 
         <View
-            android:id="@+id/right3"
+            android:id="@+id/box8"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/box8" />
 
         <View
-            android:id="@+id/right4"
+            android:id="@+id/box9"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/box9" />
 
         <LinearLayout
-            android:id="@+id/right5"
+            android:id="@+id/corner"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -114,35 +114,35 @@
             >
 
             <View
-                android:id="@+id/right5_1"
+                android:id="@+id/line1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/line1"/>
 
             <View
-                android:id="@+id/right5_2"
+                android:id="@+id/line2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/line2"/>
 
             <View
-                android:id="@+id/right5_3"
+                android:id="@+id/line3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/line3"/>
 
             <View
-                android:id="@+id/right5_4"
+                android:id="@+id/line4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/line4"/>
 
             <View
-                android:id="@+id/right5_5"
+                android:id="@+id/line5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
