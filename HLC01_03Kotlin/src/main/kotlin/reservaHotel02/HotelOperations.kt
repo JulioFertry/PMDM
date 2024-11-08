@@ -28,10 +28,20 @@ class HotelOperations {
             val endingDate = calendar.time
 
             val reservation = Reservation(room, client, bookingDate, endingDate)
+            this.bookings.add(reservation)
         } catch (e: Exception) {
             println("*** ERROR *** - ($e)")
         }
+    }
 
+
+    fun cancelReservation() {
+
+    }
+
+
+    fun showBookings() {
+        this.bookings.forEach { println(it) }
     }
 
 }
