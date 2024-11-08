@@ -32,7 +32,6 @@ class Console {
 
     fun readDate(): Date? {
         val dateFormat = SimpleDateFormat("DD/MM/YYYY")
-        println("Ingrese la fecha en formato DD/MM/YYYY:")
         val date = readlnOrNull()
 
         try {

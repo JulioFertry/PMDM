@@ -1,6 +1,8 @@
 package org.example.reservaHotel02
 
-class Hotel(val console: Console = Console()) {
+import java.util.*
+
+class Hotel(private val console: Console = Console()) {
 
     private val rooms = mutableListOf<Room>()
     private val bookings = mutableListOf<Reservation>()
@@ -32,6 +34,14 @@ class Hotel(val console: Console = Console()) {
     }
 
 
+    private fun createEndDate(initDate: Date?): Date {
+        val calendar = Calendar.getInstance()
+        calendar.time = initDate
+        calendar.add(Calendar.WEEK_OF_YEAR, 1)
+        return calendar.time
+    }
+
+
     /** Reserva una habitación a un cliente
      *
      *
@@ -46,6 +56,13 @@ class Hotel(val console: Console = Console()) {
 
         console.showMessage("Introduce el número de la habitación: ", false)
         val roomId = console.readString()
+        val room = rooms.find { it.number == roomId }
+
+        console.showMessage("Introduce la fecha de inicio de la reserva en formato DD/MM/YYYY: ")
+        val initDate = console.readDate()
+        val endDate = createEndDate(initDate)
+
+
     }
 
 
