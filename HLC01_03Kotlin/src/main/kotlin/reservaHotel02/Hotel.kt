@@ -1,6 +1,5 @@
 package org.example.reservaHotel02
 
-import java.util.*
 
 class Hotel(private val console: Console = Console()) {
 
@@ -34,34 +33,48 @@ class Hotel(private val console: Console = Console()) {
     }
 
 
-    private fun createEndDate(initDate: Date?): Date {
-        val calendar = Calendar.getInstance()
-        calendar.time = initDate
-        calendar.add(Calendar.WEEK_OF_YEAR, 1)
-        return calendar.time
-    }
-
-
-    /** Reserva una habitación a un cliente
-     *
+    /** Introduce un cliente y lo retorna
      *
      */
-    fun bookARoom() {
+    private fun insertClient(): Client {
         console.showMessage("Introduce el nombre del cliente: ", false)
         val clientName = console.readString()
         console.showMessage("Introduce el apellido del cliente: ", false)
         val clientSurname = console.readString()
         val clientId = clientName.padEnd(3, '0').take(3) +
                 clientSurname.padEnd(3, '0').take(3)
+        val client = Client(clientName, clientSurname, clientId)
+        return client
+    }
 
+
+    /** Introduce una habitación, la busca en el hotel y la retorna si existe y no está reservada
+     *
+     */
+    private fun insertRoom(): Room {
         console.showMessage("Introduce el número de la habitación: ", false)
         val roomId = console.readString()
-        val room = rooms.find { it.number == roomId }
+        val room = rooms.find { it.number == roomId } ?: throw Exception("La habitación no existe")
+        if (room.booked) {
+            throw Exception("La habitación ya está reservada")
+        }
+        return room
+    }
 
-        console.showMessage("Introduce la fecha de inicio de la reserva en formato DD/MM/YYYY: ")
-        val initDate = console.readDate()
-        val endDate = createEndDate(initDate)
 
+    /** Reserva una habitación a un cliente
+     *
+     */
+    fun doReservation() {
+        try {
+            val client = insertClient()
+            val room = insertRoom()
+            room.book()
+            val reservation = Reservation(room, client)
+            bookings.add(reservation)
+        } catch (e: Exception) {
+            console.showMessage("ERROR al hacer la reserva: ($e)", true)
+        }
 
     }
 

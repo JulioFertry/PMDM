@@ -1,8 +1,5 @@
 package org.example.reservaHotel02
 
-import java.text.SimpleDateFormat
-import java.util.Date
-
 
 class Console {
 
@@ -25,23 +22,6 @@ class Console {
             val number = readln().toInt()
             return number
         } catch (e: NumberFormatException) {
-            return null
-        }
-    }
-
-
-    fun readDate(): Date? {
-        val dateFormat = SimpleDateFormat("DD/MM/YYYY")
-        val date = readlnOrNull()
-
-        try {
-            if (date != null) {
-                return dateFormat.parse(date)
-            } else {
-                throw Exception("Formato de fecha no válido")
-            }
-        } catch (e: Exception) {
-            showMessage("*** ERROR *** - ($e)")
             return null
         }
     }
