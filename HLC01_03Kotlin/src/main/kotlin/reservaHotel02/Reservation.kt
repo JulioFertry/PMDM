@@ -2,12 +2,14 @@ package org.example.reservaHotel02
 
 
 class Reservation(
-    private val room: Room,
+    room: Room,
     private val client: Client,
 ) {
+    val clientId = client.id
+    val roomNumber = room.number
 
     override fun toString(): String {
-        return "Habitación: ${room.number} - Cliente: ${client.name} ${client.surname}"
+        return "Habitación: $roomNumber - Cliente: ${client.name} ${client.surname}"
     }
 
 }

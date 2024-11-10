@@ -44,11 +44,24 @@ class Hotel(private val console: Console = Console()) {
     }
 
 
-    /** Muestra la información de todas las reservas del hotel */
-    fun showBookings() {
-        for (reservation in this.bookings) {
-            console.showMessage(reservation.toString(), true)
+    /** Muestra la información de las reservas de un cliente o de todos los clientes
+     *
+     * @param clientId Id del cliente
+     */
+    fun showBookings(clientId: String? = null) {
+
+        if (clientId.isNullOrEmpty()) {
+            for (reservation in this.bookings) {
+                console.showMessage(reservation.toString(), true)
+            }
+        } else {
+            for (reservation in this.bookings) {
+                if (reservation.clientId == clientId) {
+                    console.showMessage(reservation.toString(), jumpLine = true)
+                }
+            }
         }
+
     }
 
 
@@ -58,9 +71,14 @@ class Hotel(private val console: Console = Console()) {
      */
     private fun insertClient(): Client {
         console.showMessage("Introduce el nombre del cliente: ", false)
-        val clientName = console.readString()
+        val clientName = console.readString().trim()
         console.showMessage("Introduce el apellido del cliente: ", false)
-        val clientSurname = console.readString()
+        val clientSurname = console.readString().trim()
+
+        if (clientName.isEmpty() && clientSurname.isEmpty()) {
+            throw Exception("Los datos del cliente son inválidos")
+        }
+
         val clientId = clientName.padEnd(3, '0').take(3) +
                 clientSurname.padEnd(3, '0').take(3)
         val client = Client(clientName, clientSurname, clientId)
@@ -72,7 +90,7 @@ class Hotel(private val console: Console = Console()) {
      *
      * @return la habitación correspondiente al ID introducido
      */
-    private fun insertRoom(): Room {
+    private fun searchAvailableRoom(): Room {
         console.showMessage("Introduce el número de la habitación: ", false)
         val roomId = console.readString()
         val room = this.rooms.find { it.number == roomId } ?: throw Exception("La habitación no existe")
@@ -89,7 +107,7 @@ class Hotel(private val console: Console = Console()) {
         try {
             val client = insertClient()
             showAvailableRooms()
-            val room = insertRoom()
+            val room = searchAvailableRoom()
             room.book()
             val reservation = Reservation(room, client)
             this.bookings.add(reservation)
@@ -100,11 +118,116 @@ class Hotel(private val console: Console = Console()) {
     }
 
 
+    /** Comprueba si un cliente tiene reservas
+     *
+     * @param clientId ID del cliente a comprobar
+     *
+     * @return Resultado
+     */
+    private fun clientHasBookings(clientId: String?): Boolean {
+        return bookings.any { it.clientId == clientId }
+    }
 
 
+    /** Pide el ID de un cliente y lo devuelve si el cliente tiene una reserva
+     *
+     * @return ID del cliente on valor nulo
+     */
+    private fun searchByClientId(): String? {
+        console.showMessage("Introduce el id del cliente: ", false)
+        val clientId = readln()
+        return if (clientHasBookings(clientId)) {
+            clientId
+        } else {
+            null
+        }
+    }
 
+
+    /** Pregunta al usuario si quiere eliminar todas las reservas de un cliente y retorna su decisión
+     *
+     * @return Decisón del usuario
+     */
+    private fun doCompleteRemoval(): Boolean {
+        console.showMessage("Quieres eliminar todas las reservas del cliente? (y/n): ", false)
+        val command = readln().lowercase()
+        var result = false
+
+        when (command) {
+            "y", "yes" -> {
+                console.showMessage("Se eliminarán todas las reservas del cliente")
+                result = true
+            }
+            "n", "no" -> {
+                console.showMessage("Borrado manual")
+            }
+            else -> {
+                console.showMessage("Respuesta inválida, usa el borrado manual")
+            }
+        }
+        return result
+    }
+
+
+    /** Pide al usuario el id de una habitación y la retorna si existe */
+    private fun searchDeletableRooms(): Room {
+        console.showMessage("Introduce el número de la habitación: ", false)
+        val roomId = console.readString()
+        val room = this.rooms.find { it.number == roomId } ?: throw Exception("La habitación no existe")
+        if (!room.booked) {
+            throw Exception("La habitación no tiene una reserva")
+        } else {
+            return room
+        }
+    }
+
+
+    /** Elimina todas las reservas de un cliente
+     *
+     * @param clientId ID del cliente
+     */
+    private fun deleteAllFromClient(clientId: String?) {
+        bookings.removeIf { it.clientId == clientId }
+        console.showMessage("Todas las reservas eliminadas con éxito")
+    }
+
+
+    /** Elimina una reserva */
     fun cancelReservation() {
+        try {
+            val clientId = searchByClientId()
 
+            if (clientHasBookings(clientId)) {
+                val completeRemoval = doCompleteRemoval()
+
+                if (completeRemoval) {
+                    deleteAllFromClient(clientId)
+                } else {
+                    showBookings(clientId)
+                    val room = searchDeletableRooms()
+                    val reservation = bookings.find { it.clientId == clientId && it.roomNumber == room.number }
+                    if (bookings.remove(reservation)) {
+                        console.showMessage("Reserva eliminada con éxito")
+                    } else {
+                        console.showMessage("No se pudo eliminar la reserva")
+                    }
+                }
+
+            } else {
+                console.showMessage("El cliente introducido no tiene reservas")
+                showBookings()
+                val room = searchDeletableRooms()
+                val reservation = bookings.find {it.roomNumber == room.number }
+                if (bookings.remove(reservation)) {
+                    console.showMessage("Reserva eliminada con éxito")
+                } else {
+                    console.showMessage("No se pudo eliminar la reserva")
+                }
+
+            }
+        } catch (e: Exception) {
+            console.showMessage("ERROR al eliminar una reserva: ($e)")
+        }
     }
 
 
