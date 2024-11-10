@@ -16,4 +16,9 @@ data class Room(
     fun unBook() {
         booked = false
     }
+
+
+    override fun toString(): String {
+        return "Habitación: $number - Precio: $price - Estado: ${if (booked) {"Reservada"} else {"Libre"}}"
+    }
 }

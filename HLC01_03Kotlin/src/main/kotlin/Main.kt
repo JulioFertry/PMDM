@@ -1,10 +1,17 @@
 package org.example
 import org.example.gestionBiblioteca01.LibraryOperations
+import org.example.reservaHotel02.Hotel
 
 
 fun main() {
 
-    val library = LibraryOperations()
-    library.appMenu()
+    val hotel = Hotel()
+    hotel.showBookings()
+
+    hotel.doReservation()
+    hotel.doReservation()
+    hotel.doReservation()
+
+    hotel.showBookings()
 
 }
