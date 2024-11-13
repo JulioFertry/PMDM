@@ -77,7 +77,11 @@ class LibraryOperations {
             println("6. Salir")
             print("-> ")
             option = readln()
-            performOption(option)
+            try {
+                performOption(option)
+            } catch (e: Exception) {
+                println("ERROR ($e)")
+            }
         }
     }
 
@@ -94,5 +98,6 @@ class LibraryOperations {
             else -> println("La opcion no es valida\n")
         }
     }
+
 
 }

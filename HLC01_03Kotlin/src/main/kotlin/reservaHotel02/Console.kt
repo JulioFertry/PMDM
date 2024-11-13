@@ -16,14 +16,4 @@ class Console {
         return readln()
     }
 
-
-    fun readInt(): Int? {
-        try {
-            val number = readln().toInt()
-            return number
-        } catch (e: NumberFormatException) {
-            return null
-        }
-    }
-
 }
