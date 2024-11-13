@@ -15,10 +15,10 @@ class GamblingSpell : Spell {
         val outcome = Random.nextInt(1, 101)
         if (isPair(outcome)) {
             println("Buena suerte")
-            target.receiveDamage(9999999)
+            target.receiveDamage(999999999)
         } else {
             println("Mala suerte")
-            caster.receiveDamage(9999999)
+            caster.receiveDamage(999999999)
         }
     }
 
