@@ -208,6 +208,7 @@ class Hotel(private val console: Console = Console()) {
                     val reservation = bookings.find { it.clientId == clientId && it.roomNumber == room.number }
                     if (bookings.remove(reservation)) {
                         console.showMessage("Reserva eliminada con éxito")
+                        room.unBook()
                     } else {
                         console.showMessage("No se pudo eliminar la reserva")
                     }
@@ -220,6 +221,7 @@ class Hotel(private val console: Console = Console()) {
                 val reservation = bookings.find {it.roomNumber == room.number }
                 if (bookings.remove(reservation)) {
                     console.showMessage("Reserva eliminada con éxito")
+                    room.unBook()
                 } else {
                     console.showMessage("No se pudo eliminar la reserva")
                 }
