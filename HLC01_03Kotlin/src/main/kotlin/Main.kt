@@ -1,4 +1,5 @@
 package org.example
+import gestorTareas05.TaskMenu
 import org.example.gestionBiblioteca01.LibraryOperations
 import org.example.gestionEstudiantes04.SchoolMenu
 import org.example.juegoRol03.FightMenu
@@ -10,6 +11,7 @@ fun main() {
     val hotel = HotelMenu()
     val rpg = FightMenu()
     val school = SchoolMenu()
+    val task = TaskMenu()
 
     fun askForOption(): String {
         println("1 act1\n" +
@@ -30,7 +32,7 @@ fun main() {
             "2" -> hotel.executeMenu()
             "3" -> rpg.fight()
             "4" -> school.executeMenu()
-            "5" -> println()
+            "5" -> task.executeMenu()
             else -> println("La opción introducida no existe...")
         }
     }
