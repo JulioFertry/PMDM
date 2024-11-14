@@ -21,6 +21,8 @@
     <string name="contact9_message">Lo siento, no nos quedan billetes a México</string>
     <string name="contact10_name">Papá de novia 2</string>
     <string name="contact10_message">He comprado todos los billetes a México para que no huyas</string>
-    <string name="contact11_name">Profesor</string>
+    <string name="contact11_name">Pepe Profesor</string>
     <string name="contact11_message">Llevas 1 mes sin entregar tareas</string>
+    <string name="contact12_name">Juan Mecánico</string>
+    <string name="contact12_message">*Mensaje Eliminado*</string>
 </resources>
