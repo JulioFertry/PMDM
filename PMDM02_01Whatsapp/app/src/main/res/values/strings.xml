@@ -1,4 +1,26 @@
 <resources>
     <string name="app_name">PMDM02_01Whatsapp</string>
-    <string name="app_title">Whats up</string>
+    <string name="app_title">Whats Up</string>
+    <string name="contact1_name">2º DAM</string>
+    <string name="contact1_message">Nico: Como se centra un div?</string>
+    <string name="contact2_name">Eustaquio</string>
+    <string name="contact2_message">Me debes 5 euros del kebab</string>
+    <string name="contact3_name">Novia 2</string>
+    <string name="contact3_message">Estoy embarazada</string>
+    <string name="contact4_name">Doctor Godofredo</string>
+    <string name="contact4_message">Lamento decirle que es usted infértil</string>
+    <string name="contact5_name">Anacleto amigo</string>
+    <string name="contact5_message">Voy a ser papá</string>
+    <string name="contact6_name">Novia 1</string>
+    <string name="contact6_message">Me estás poniendo los cuernos?</string>
+    <string name="contact7_name">Mono borracho</string>
+    <string name="contact7_message">Estoy llegando a tu casa, tienes hielo?¿</string>
+    <string name="contact8_name">AAMamá</string>
+    <string name="contact8_message">¿Para qué quieres 200 euros?</string>
+    <string name="contact9_name">Aeropuerto Jerez</string>
+    <string name="contact9_message">Lo siento, no nos quedan billetes a México</string>
+    <string name="contact10_name">Papá de novia 2</string>
+    <string name="contact10_message">He comprado todos los billetes a México para que no huyas</string>
+    <string name="contact11_name">Profesor</string>
+    <string name="contact11_message">Llevas 1 mes sin entregar tareas</string>
 </resources>
