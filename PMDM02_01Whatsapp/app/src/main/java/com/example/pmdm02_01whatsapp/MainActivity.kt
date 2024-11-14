@@ -221,6 +221,7 @@ fun ChatColumn() {
                 name = chat.name,
                 lastMessage = chat.lastMessage
             )
+
         }
     }
 
