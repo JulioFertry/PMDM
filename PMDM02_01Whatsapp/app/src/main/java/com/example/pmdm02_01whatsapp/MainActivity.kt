@@ -43,12 +43,9 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             PMDM02_01WhatsappTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) {
-                    innerPadding -> TopBar(modifier = Modifier.padding(innerPadding))
-                }
+                MainScreen()
             }
         }
-
     }
 }
 
