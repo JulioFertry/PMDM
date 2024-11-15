@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.gestionBiblioteca01.LibraryOperations;
 import org.example.gestionEstudiantes04.SchoolMenu;
+import org.example.gestorTareas05.TaskMenu;
 import org.example.juegoRol03.FightMenu;
 import org.example.reservaHotel02.HotelMenu;
 import java.util.Scanner;
@@ -14,16 +15,17 @@ public class Main {
         HotelMenu hotel = new HotelMenu();
         FightMenu rpg = new FightMenu();
         SchoolMenu school = new SchoolMenu();
+        TaskMenu task = new TaskMenu();
 
         Scanner scanner = new Scanner(System.in);
 
         String option = "";
 
-        // Bucle principal que sigue ejecutando hasta que el usuario elija "0"
+
         try {
             while (!option.equals("0")) {
                 option = askForOption(scanner);
-                performOption(option, library, hotel, rpg, school);
+                performOption(option, library, hotel, rpg, school, task);
             }
 
         } catch (Exception e) {
@@ -31,7 +33,7 @@ public class Main {
         }
     }
 
-    // Método para pedir la opción al usuario
+
     public static String askForOption(Scanner scanner) {
         System.out.println("1 act1");
         System.out.println("2 act2");
@@ -42,12 +44,14 @@ public class Main {
         return scanner.nextLine();
     }
 
-    // Método para ejecutar la opción correspondiente
+
     public static void performOption(
             String option,
             LibraryOperations library,
             HotelMenu hotel,
-            FightMenu rpg, SchoolMenu school
+            FightMenu rpg,
+            SchoolMenu school,
+            TaskMenu task
     ) {
         switch (option) {
             case "0":
@@ -66,7 +70,7 @@ public class Main {
                 school.executeMenu();
                 break;
             case "5":
-                System.out.println();
+                task.executeMenu();
                 break;
             default:
                 System.out.println("La opción introducida no existe...");
