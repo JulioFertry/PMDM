@@ -59,7 +59,7 @@ fun MainScreen() {
         ) { innerPadding ->
             Column(modifier = Modifier.padding(innerPadding)) {
                 TopBar(modifier = Modifier.fillMaxWidth())
-                ChatColumn()
+                ContactColumn()
             }
         }
     }
@@ -110,7 +110,7 @@ fun TopBar(modifier: Modifier) {
 
 
 @Composable
-fun ChatRow(profilePic: Painter, name: String, lastMessage: String) {
+fun ContactRow(profilePic: Painter, name: String, lastMessage: String) {
     Row(
         modifier = Modifier.fillMaxWidth()
             .background(colorResource(id = R.color.dark_green))
@@ -148,64 +148,64 @@ fun ChatRow(profilePic: Painter, name: String, lastMessage: String) {
 
 
 @Composable
-fun ChatColumn() {
-    val chatList = listOf(
-        Chat(
+fun ContactColumn() {
+    val contactLists = listOf(
+        Contact(
             painterResource(id = R.drawable.aa_2dam),
             stringResource(id = R.string.contact1_name),
             stringResource(id = R.string.contact1_message)
         ),
-        Chat(
+        Contact(
             painterResource(id = R.drawable.aa_eustaquio),
             stringResource(id = R.string.contact2_name),
             stringResource(id = R.string.contact2_message)
         ),
-        Chat(
+        Contact(
             painterResource(id = R.drawable.aa_novia2),
             stringResource(id = R.string.contact3_name),
             stringResource(id = R.string.contact3_message)
         ),
-        Chat(
+        Contact(
             painterResource(id = R.drawable.aa_doctor),
             stringResource(id = R.string.contact4_name),
             stringResource(id = R.string.contact4_message)
         ),
-        Chat(
+        Contact(
             painterResource(id = R.drawable.aa_anacleto),
             stringResource(id = R.string.contact5_name),
             stringResource(id = R.string.contact5_message)
         ),
-        Chat(
+        Contact(
             painterResource(id = R.drawable.aa_novia1),
             stringResource(id = R.string.contact6_name),
             stringResource(id = R.string.contact6_message)
         ),
-        Chat(
+        Contact(
             painterResource(id = R.drawable.aa_mono),
             stringResource(id = R.string.contact7_name),
             stringResource(id = R.string.contact7_message)
         ),
-        Chat(
+        Contact(
             painterResource(id = R.drawable.aa_mama),
             stringResource(id = R.string.contact8_name),
             stringResource(id = R.string.contact8_message)
         ),
-        Chat(
+        Contact(
             painterResource(id = R.drawable.aa_aeropuerto),
             stringResource(id = R.string.contact9_name),
             stringResource(id = R.string.contact9_message)
         ),
-        Chat(
+        Contact(
             painterResource(id = R.drawable.aa_papa),
             stringResource(id = R.string.contact10_name),
             stringResource(id = R.string.contact10_message)
         ),
-        Chat(
+        Contact(
             painterResource(id = R.drawable.aa_profesor),
             stringResource(id = R.string.contact11_name),
             stringResource(id = R.string.contact11_message)
         ),
-        Chat(
+        Contact(
             painterResource(id = R.drawable.aa_juanmecanico),
             stringResource(id = R.string.contact12_name),
             stringResource(id = R.string.contact12_message)
@@ -215,8 +215,8 @@ fun ChatColumn() {
     LazyColumn(
         modifier = Modifier.fillMaxSize()
     ) {
-        items(chatList) { chat ->
-            ChatRow(
+        items(contactLists) { chat ->
+            ContactRow(
                 profilePic = chat.profilePic,
                 name = chat.name,
                 lastMessage = chat.lastMessage
