@@ -33,6 +33,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.pmdm02_01whatsapp.data.getContacts
 import com.example.pmdm02_01whatsapp.ui.theme.PMDM02_01WhatsappTheme
 
 
@@ -110,7 +111,7 @@ fun TopBar(modifier: Modifier) {
 
 
 @Composable
-fun ContactRow(profilePic: Painter, name: String, lastMessage: String) {
+fun ContactRow(profilePic: Painter, name: String, lastMessage: String, msgTime: String) {
     Row(
         modifier = Modifier.fillMaxWidth()
             .background(colorResource(id = R.color.dark_green))
@@ -139,9 +140,16 @@ fun ContactRow(profilePic: Painter, name: String, lastMessage: String) {
                 text = lastMessage,
                 color = colorResource(id = R.color.grey),
                 fontSize = 10.sp,
-                fontWeight = FontWeight.Light
+                fontWeight = FontWeight.Normal
             )
         }
+
+        Text(
+            text = msgTime,
+            color = colorResource(id = R.color.grey),
+            fontSize = 10.sp,
+            fontWeight = FontWeight.Normal
+        )
     }
 
 }
@@ -149,77 +157,17 @@ fun ContactRow(profilePic: Painter, name: String, lastMessage: String) {
 
 @Composable
 fun ContactColumn() {
-    val contactLists = listOf(
-        Contact(
-            painterResource(id = R.drawable.aa_2dam),
-            stringResource(id = R.string.contact1_name),
-            stringResource(id = R.string.contact1_message)
-        ),
-        Contact(
-            painterResource(id = R.drawable.aa_eustaquio),
-            stringResource(id = R.string.contact2_name),
-            stringResource(id = R.string.contact2_message)
-        ),
-        Contact(
-            painterResource(id = R.drawable.aa_novia2),
-            stringResource(id = R.string.contact3_name),
-            stringResource(id = R.string.contact3_message)
-        ),
-        Contact(
-            painterResource(id = R.drawable.aa_doctor),
-            stringResource(id = R.string.contact4_name),
-            stringResource(id = R.string.contact4_message)
-        ),
-        Contact(
-            painterResource(id = R.drawable.aa_anacleto),
-            stringResource(id = R.string.contact5_name),
-            stringResource(id = R.string.contact5_message)
-        ),
-        Contact(
-            painterResource(id = R.drawable.aa_novia1),
-            stringResource(id = R.string.contact6_name),
-            stringResource(id = R.string.contact6_message)
-        ),
-        Contact(
-            painterResource(id = R.drawable.aa_mono),
-            stringResource(id = R.string.contact7_name),
-            stringResource(id = R.string.contact7_message)
-        ),
-        Contact(
-            painterResource(id = R.drawable.aa_mama),
-            stringResource(id = R.string.contact8_name),
-            stringResource(id = R.string.contact8_message)
-        ),
-        Contact(
-            painterResource(id = R.drawable.aa_aeropuerto),
-            stringResource(id = R.string.contact9_name),
-            stringResource(id = R.string.contact9_message)
-        ),
-        Contact(
-            painterResource(id = R.drawable.aa_papa),
-            stringResource(id = R.string.contact10_name),
-            stringResource(id = R.string.contact10_message)
-        ),
-        Contact(
-            painterResource(id = R.drawable.aa_profesor),
-            stringResource(id = R.string.contact11_name),
-            stringResource(id = R.string.contact11_message)
-        ),
-        Contact(
-            painterResource(id = R.drawable.aa_juanmecanico),
-            stringResource(id = R.string.contact12_name),
-            stringResource(id = R.string.contact12_message)
-        )
-    )
+    val contactList = getContacts()
 
     LazyColumn(
         modifier = Modifier.fillMaxSize()
     ) {
-        items(contactLists) { chat ->
+        items(contactList) { chat ->
             ContactRow(
                 profilePic = chat.profilePic,
                 name = chat.name,
-                lastMessage = chat.lastMessage
+                lastMessage = chat.lastMessage?.content?:"",
+                msgTime = chat.lastMessage?.hour?:""
             )
         }
     }

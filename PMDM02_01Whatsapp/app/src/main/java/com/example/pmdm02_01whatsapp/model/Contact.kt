@@ -1,4 +1,4 @@
-package com.example.pmdm02_01whatsapp
+package com.example.pmdm02_01whatsapp.model
 
 import androidx.compose.ui.graphics.painter.Painter
 

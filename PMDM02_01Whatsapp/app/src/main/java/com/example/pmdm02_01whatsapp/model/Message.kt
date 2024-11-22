@@ -1,8 +1,7 @@
-package com.example.pmdm02_01whatsapp
+package com.example.pmdm02_01whatsapp.model
 
 data class Message(
     val content: String,
-    val read: Boolean,
     val hour: String,
     val owner: Boolean
 )
