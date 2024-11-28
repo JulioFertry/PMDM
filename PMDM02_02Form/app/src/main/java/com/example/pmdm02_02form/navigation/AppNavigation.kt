@@ -24,7 +24,7 @@ fun AppNavigation(modifier: Modifier = Modifier) {
             arguments = listOf(
                 navArgument("name") {type = NavType.StringType},
                 navArgument("dni") {type = NavType.StringType},
-                navArgument("age") {type = NavType.StringType}
+                navArgument("age") {type = NavType.IntType}
             )
         ) {
             val name = it.arguments?.getString("name") ?: ""
