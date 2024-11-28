@@ -38,7 +38,7 @@ class act2 {
   void showMenu() {
     print('1 para ver todas las tareas\n'
         '2 para agregar una tarea\n'
-        '0para salir\n');
+        '0 para salir\n');
   }
 
 
