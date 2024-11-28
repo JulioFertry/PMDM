@@ -48,7 +48,7 @@ class act1 {
   }
 
 
-  void mainUse() {
+  void act1Main() {
     showGenres();
     String? newGenre = askForGenre();
     addGenero(newGenre);

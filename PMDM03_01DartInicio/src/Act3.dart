@@ -65,7 +65,7 @@ class act3 {
   }
 
 
-  void actMain() {
+  void act3Main() {
     String? input = "";
 
     while (input != "0") {

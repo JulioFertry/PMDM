@@ -42,7 +42,7 @@ class act2 {
   }
 
 
-  void actMain() {
+  void act2Main() {
     String? input = "";
 
     while (input != "0") {
