@@ -24,26 +24,17 @@ fun AppNavigation(modifier: Modifier = Modifier) {
         }
 
         composable(
-            AppScreen.ChatScreen.path + "/{contactId}/{contactName}/{profilePic}",
+            AppScreen.ChatScreen.path + "/{contactId}",
             arguments = listOf(
                 navArgument("contactId") { type = NavType.StringType },
-                navArgument("contactName") { type = NavType.StringType },
-                navArgument("profilePicId") { type = NavType.IntType }
             )
         ) { it ->
 
 
             val contactId = it.arguments?.getString("contactId")?:"00"
             val contact = getContacts().find { it.id == contactId }
-            val contactName = it.arguments?.getString("contactName")
 
-            val profilePic = if (contact != null) {
-                contact.profilePic
-            } else {
-                painterResource(id = R.drawable.ic_launcher_foreground)
-            }
-
-            ChatScreen(navController, contactId, contactName, profilePic)
+            ChatScreen(navController, contact)
         }
     }
 }
