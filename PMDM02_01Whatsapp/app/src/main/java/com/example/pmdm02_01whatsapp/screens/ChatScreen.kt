@@ -43,14 +43,23 @@ fun ChatScreen(navController: NavController, contact: Contact?) {
 @Composable
 fun ChatBody(navController: NavController, contact: Contact?) {
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .background(colorResource(id = R.color.dark_green))
+            .padding(bottom = 25.dp),
+        verticalArrangement = Arrangement.Top
     ) {
         ContactTopBar(contact)
         Chat(contact?.messages ?: listOf())
+
+        /*
         ContactLowerBar {newMessage ->
             contact!!.messages.add(newMessage)
             contact.lastMessage = newMessage
         }
+
+        */
+
     }
 }
 
@@ -60,15 +69,18 @@ fun ContactTopBar(
     contact: Contact?
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 25.dp, vertical = 10.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(25.dp)
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(colorResource(id = R.color.green_bar))
+            .padding(top = 20.dp, bottom = 10.dp)
+            .padding(horizontal = 5.dp)
     ) {
 
         Image(
             painter = contact?.profilePic ?: painterResource(id = R.drawable.ic_launcher_foreground),
             contentDescription = "Foto de perfil",
-            modifier = Modifier.size(50.dp)
+            modifier = Modifier
+                .size(50.dp)
                 .clip(CircleShape)
         )
 
@@ -78,6 +90,9 @@ fun ContactTopBar(
             fontSize = 20.sp,
             textAlign = TextAlign.Left,
             modifier = Modifier.weight(1f)
+                .padding(start = 15.dp)
+                .padding(top = 10.dp)
+                .weight(1f)
         )
 
     }
@@ -90,8 +105,7 @@ fun Chat(messages: List<Message>) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = 10.dp, vertical = 5.dp),
-        reverseLayout = true
+            .padding(horizontal = 10.dp, vertical = 5.dp)
     ) {
         items(messages) { message ->
             ChatBubble(message = message)
@@ -160,7 +174,7 @@ fun ContactLowerBar(
             modifier = Modifier
                 .weight(1f)
                 .padding(end = 8.dp),
-            placeholder = { Text("Escribe un mensaje...") }
+            placeholder = { Text("Escribe aqui...") }
         )
 
         Button(

@@ -2,6 +2,7 @@ package com.example.pmdm02_01whatsapp.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -103,19 +104,22 @@ fun ContactRow(
     Row(
         modifier = Modifier.fillMaxWidth()
             .background(colorResource(id = R.color.dark_green))
-            .padding(horizontal = 15.dp),
+            .padding(horizontal = 15.dp)
+            .clickable(onClick = onClick),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Image(
             painter = profilePic,
             contentDescription = "Foto de perfil",
-            modifier = Modifier.size(50.dp)
+            modifier = Modifier
+                .size(50.dp)
                 .clip(CircleShape)
         )
 
         Column(
             modifier = Modifier.padding(start = 10.dp)
                 .padding(vertical = 15.dp)
+                .weight(1f)
         ) {
             Text(
                 text = name,
@@ -138,8 +142,9 @@ fun ContactRow(
             fontSize = 10.sp,
             fontWeight = FontWeight.Normal
         )
-    }
 
+
+    }
 }
 
 
@@ -158,9 +163,7 @@ fun ContactColumn(navController: NavController) {
                 msgTime = chat.lastMessage?.hour?:"",
                 onClick = {
                     navController.navigate("ChatScreen" +
-                            "/${chat.id}" +
-                            "/${chat.name}" +
-                            "/${chat.profilePic}"
+                            "/${chat.id}"
                     )
 
                 }
