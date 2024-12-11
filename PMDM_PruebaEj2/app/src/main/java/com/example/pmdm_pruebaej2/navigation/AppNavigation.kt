@@ -21,7 +21,7 @@ fun AppNavigation(modifier: Modifier = Modifier) {
         }
 
         composable(AppScreen.MenuScreen.route + "/{text}",
-            arguments = listOf(navArgument("nothing") {type = NavType.StringType})
+            arguments = listOf(navArgument("text") {type = NavType.StringType})
         ) {
             MenuScreen(navControlador, it.arguments?.getString("text"))
         }

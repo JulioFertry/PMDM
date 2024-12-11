@@ -18,6 +18,7 @@ import com.example.pmdm_pruebaej2.navigation.AppScreen
 import com.example.pmdm_pruebaej2.screens.WelcomeBody
 import com.example.pmdm_pruebaej2.ui.theme.PMDM_PruebaEj2Theme
 
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -121,7 +121,11 @@ fun ProductBubble(product: Product) {
 }
 
 
-/** Lista de categorias dinamica, se ordena segun la categoria que presione el usuario */
+/** Lista de categorias dinamica, se ordena segun la categoria que presione el usuario
+ *
+ * @param category Categoria por la que se ordena
+ * @param products Lista de los productos
+ */
 @Composable
 fun Products(category: String?, products: List<Product>) {
     LazyColumn {

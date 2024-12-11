@@ -35,7 +35,7 @@ fun WelcomeBody(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         TextLogo()
-        Spacer(modifier = Modifier.height(30.dp))
+        Spacer(modifier = Modifier.height(120.dp))
         NextScreenButton(
             onClickAct = {
                 navController.navigate(route = AppScreen.MenuScreen.route + "/")
