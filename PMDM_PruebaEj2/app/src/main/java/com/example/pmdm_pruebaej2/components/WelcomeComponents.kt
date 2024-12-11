@@ -43,7 +43,7 @@ fun TextLogo() {
             style = TextStyle(
                 fontWeight = FontWeight.Bold,
                 fontSize = 35.sp,
-                color = colorResource(id = R.color.cadiz_yellow)
+        color = colorResource(id = R.color.cadiz_yellow)
             )
         )
     }
@@ -51,6 +51,10 @@ fun TextLogo() {
 }
 
 
+/** Boton para navegar a la ventana del menu
+ *
+ * @param onClickAct Recibe el comportamiento del boton al pulsarlo, en este caso cambia de pantalla
+ */
 @Composable
 fun NextScreenButton(onClickAct: () -> Unit) {
     Button(
