@@ -25,7 +25,7 @@ class act1 {
 
 
   /** Recibe un numero y devuelve una lista con todos sus divisores */
-  List<int> _calculateDividers(number) {
+  List<int> _calculateDividers(int number) {
     List<int> dividers = [];
     for (int i = number; i >= 1; i--) {
       if (number % i == 0) {
